@@ -6,27 +6,26 @@ import com.websystique.hibernate.model.Student;
  
 /**
  * Class used to perform CRUD operation on database with Hibernate API's
- * 
  */
-public class HibernateStandAloneDemo {
+public class Main {
  
     @SuppressWarnings("unused")
     public static void main(String[] args) {
  
-        HibernateStandAloneDemo application = new HibernateStandAloneDemo();
+        System.out.println("INICIANDO LA APLICACION");
  
         /*
          * Save few objects with hibernate
          */
-        int studentId1 = application.saveStudent("Sam", "Disilva", "Maths");
-        int studentId2 = application.saveStudent("Joshua", "Brill", "Science");
-        int studentId3 = application.saveStudent("Peter", "Pan", "Physics");
-        int studentId4 = application.saveStudent("Bill", "Laurent", "Maths");
+        int studentId1 = saveStudent("Sam", "Disilva", "Maths");
+        int studentId2 = saveStudent("Joshua", "Brill", "Science");
+        int studentId3 = saveStudent("Peter", "Pan", "Physics");
+        int studentId4 = saveStudent("Bill", "Laurent", "Maths");
  
         /*
          * Retrieve all saved objects
          */
-        List<Student> students = application.getAllStudents();
+        List<Student> students = getAllStudents();
         System.out.println("List of all persisted students >>>");
         for (Student student : students) {
             System.out.println("Persisted Student :" + student);
@@ -35,17 +34,17 @@ public class HibernateStandAloneDemo {
         /*
          * Update an object
          */
-        application.updateStudent(studentId4, "ARTS");
+        updateStudent(studentId4, "ARTS");
  
         /*
          * Deletes an object
          */
-        application.deleteStudent(studentId2);
+        deleteStudent(studentId2);
  
         /*
          * Retrieve all saved objects
          */
-        List<Student> remaingStudents = application.getAllStudents();
+        List<Student> remaingStudents = getAllStudents();
         System.out.println("List of all remained persisted students >>>");
         for (Student student : remaingStudents) {
             System.out.println("Persisted Student :" + student);
